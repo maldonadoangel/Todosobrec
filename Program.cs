@@ -21,9 +21,16 @@ namespace MetodosParametrosOpcionales
             {
                 Console.WriteLine($"Su edad es de: {edad} años, Usted es mayor de edad");
             }
-            else
+            else if(edad >= 60 && edad <= 80 )
             {
                 Console.WriteLine("Debe cuidarse ya es una persona de la tercera edad");
+            }
+            else
+            {
+                Console.WriteLine("mmmm... su edad esta en un rango superior, estamos supervisando....");
+                Thread.Sleep(3000);
+                Console.WriteLine($"Wow, su edad es de: {edad} años, tiene nuestro respeto");
+
             }
             
         }
