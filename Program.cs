@@ -6,21 +6,22 @@ namespace MetodosParametrosOpcionales
     {
         static void Main(string[] args)
         {
-            int valor1 = 7;
-            double valor2 = 6.3;
-            double valor3 = 7.8;
-            Console.WriteLine(Suma(valor1, valor2));
-        }
-         
-         static double Suma(int numero1, double numero2, double numero3 = 0)
-        {
-            return numero1 + numero2 + numero3;
-        }
+            Console.WriteLine("Ingresa tu edad: ");
+            int edad = int.Parse(Console.ReadLine());
 
-        //El metodo que llamaria es este debido a que se adapta a los parametros que solicita la funcion main
-        static double Suma(int numero1, double numero2)
-        {
-            return numero1 + numero2;
+            if (edad >= 18 && edad <= 59)
+            {
+                Console.WriteLine($"Su edad es de: {edad} años, por lo tanto usted es un adulto");
+            }
+            if (edad >= 60)
+            {
+                Console.WriteLine($"Su edad es de: {edad} años, por lo tanto usted es una persona de la tercera edad");
+            }
+            if (edad <= 17)
+            {
+                Console.WriteLine($"Su edad es de: {edad} años, por lo tanto eres un niño o un joven");
+            }
         }
     }
 }
+
