@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+
 
 namespace MetodosParametrosOpcionales
 {
@@ -6,21 +8,24 @@ namespace MetodosParametrosOpcionales
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ingresa tu edad: ");
-            int edad = int.Parse(Console.ReadLine());
+            Console.WriteLine("Bienvenido, verifiquemos tu edad....");
+            Thread.Sleep(2000);
+            Console.WriteLine("Ingrese su edad:");
+            int edad = Int16.Parse(Console.ReadLine());
 
-            if (edad >= 18 && edad <= 59)
+            if (edad < 18)
             {
-                Console.WriteLine($"Su edad es de: {edad} años, por lo tanto usted es un adulto");
+                Console.WriteLine($"Su edad es de: {edad} años es Menor de edad, le recomendamos cuidarse.");
             }
-            if (edad >= 60)
+            else if(edad <= 59)
             {
-                Console.WriteLine($"Su edad es de: {edad} años, por lo tanto usted es una persona de la tercera edad");
+                Console.WriteLine($"Su edad es de: {edad} años, Usted es mayor de edad");
             }
-            if (edad <= 17)
+            else
             {
-                Console.WriteLine($"Su edad es de: {edad} años, por lo tanto eres un niño o un joven");
+                Console.WriteLine("Debe cuidarse ya es una persona de la tercera edad");
             }
+            
         }
     }
 }
