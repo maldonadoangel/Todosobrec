@@ -8,30 +8,71 @@ namespace MetodosParametrosOpcionales
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bienvenido, verifiquemos tu edad....");
-            Thread.Sleep(2000);
-            Console.WriteLine("Ingrese su edad:");
-            int edad = Int16.Parse(Console.ReadLine());
+            //Sintaxis Switch
+            double numero1, numero2, total;
+            string titulo = "Bienvenido a mi calculadora";
+            //Titulo de ventana
+            Console.Title = "Calculadora";
 
-            if (edad < 18)
-            {
-                Console.WriteLine($"Su edad es de: {edad} años es Menor de edad, le recomendamos cuidarse.");
-            }
-            else if(edad <= 59)
-            {
-                Console.WriteLine($"Su edad es de: {edad} años, Usted es mayor de edad");
-            }
-            else if(edad >= 60 && edad <= 80 )
-            {
-                Console.WriteLine("Debe cuidarse ya es una persona de la tercera edad");
-            }
-            else
-            {
-                Console.WriteLine("mmmm... su edad esta en un rango superior, estamos supervisando....");
-                Thread.Sleep(3000);
-                Console.WriteLine($"Wow, su edad es de: {edad} años, tiene nuestro respeto");
+            //Centrar texto en pantalla
+            Console.SetCursorPosition((Console.WindowWidth - titulo.Length) / 2, Console.CursorTop);
+            Console.WriteLine(titulo);
 
-            }
+            Console.WriteLine("1. Suma");
+            Console.WriteLine("2. Resta");
+            Console.WriteLine("3. Division");
+            Console.WriteLine("0. Salir");
+            
+            Console.WriteLine("Ingrese una de las opciones");
+            int opcion = Int16.Parse(Console.ReadLine());
+
+            do
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        Console.WriteLine("Ingrese un numero:");
+                        numero1 = Double.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese otro numero:");
+                        numero2 = Double.Parse(Console.ReadLine());
+                        total = numero1 + numero2;
+                        Console.WriteLine($"La suma de los numeros es de: {total}");
+                        Environment.Exit(0);
+                        break;
+                    case 2:
+                        Console.WriteLine("Ingrese un numero:");
+                        numero1 = Double.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese otro numero:");
+                        numero2 = Double.Parse(Console.ReadLine());
+                        total = numero1 - numero2;
+                        Console.WriteLine($"La resta de los numeros es de: {total}");
+                        break;
+                    case 3:
+                        Console.WriteLine("Ingrese un numero:");
+                        numero1 = Double.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese otro numero:");
+                        numero2 = Double.Parse(Console.ReadLine());
+                        if (numero2 == 0)
+                        {
+                            total = numero2 / numero1;
+                            Console.WriteLine($"El total de la division es: {total}");
+                        }
+                        else
+                        {
+                            total = numero1 / numero2;
+                            Console.WriteLine($"El total de la division es: {total}");
+
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("");
+                        break;
+                }
+
+            } while (opcion != 0);
+
+            
             
         }
     }
