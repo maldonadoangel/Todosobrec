@@ -8,70 +8,28 @@ namespace MetodosParametrosOpcionales
     {
         static void Main(string[] args)
         {
-            //Sintaxis Switch
-            double numero1, numero2, total;
-            string titulo = "Bienvenido a mi calculadora";
-            //Titulo de ventana
-            Console.Title = "Calculadora";
+            Random numero = new Random();
+            int aleatorio = numero.Next(1, 100);
+            int miNumero = 101;
+            int intentos = 0;
 
-            //Centrar texto en pantalla
-            Console.SetCursorPosition((Console.WindowWidth - titulo.Length) / 2, Console.CursorTop);
-            Console.WriteLine(titulo);
+            Console.WriteLine("Introduce un numero entre 0 y 100");
 
-            Console.WriteLine("1. Suma");
-            Console.WriteLine("2. Resta");
-            Console.WriteLine("3. Division");
-            Console.WriteLine("0. Salir");
-            
-            Console.WriteLine("Ingrese una de las opciones");
-            int opcion = Int16.Parse(Console.ReadLine());
-
-            do
+            while (aleatorio != miNumero)
             {
-                switch (opcion)
+                intentos++;
+                miNumero = int.Parse(Console.ReadLine());
+                if (miNumero < aleatorio)
                 {
-                    case 1:
-                        Console.WriteLine("Ingrese un numero:");
-                        numero1 = Double.Parse(Console.ReadLine());
-                        Console.WriteLine("Ingrese otro numero:");
-                        numero2 = Double.Parse(Console.ReadLine());
-                        total = numero1 + numero2;
-                        Console.WriteLine($"La suma de los numeros es de: {total}");
-                        Environment.Exit(0);
-                        break;
-                    case 2:
-                        Console.WriteLine("Ingrese un numero:");
-                        numero1 = Double.Parse(Console.ReadLine());
-                        Console.WriteLine("Ingrese otro numero:");
-                        numero2 = Double.Parse(Console.ReadLine());
-                        total = numero1 - numero2;
-                        Console.WriteLine($"La resta de los numeros es de: {total}");
-                        break;
-                    case 3:
-                        Console.WriteLine("Ingrese un numero:");
-                        numero1 = Double.Parse(Console.ReadLine());
-                        Console.WriteLine("Ingrese otro numero:");
-                        numero2 = Double.Parse(Console.ReadLine());
-                        if (numero2 == 0)
-                        {
-                            total = numero2 / numero1;
-                            Console.WriteLine($"El total de la division es: {total}");
-                        }
-                        else
-                        {
-                            total = numero1 / numero2;
-                            Console.WriteLine($"El total de la division es: {total}");
-
-                        }
-                        break;
-
-                    default:
-                        Console.WriteLine("");
-                        break;
+                    Console.WriteLine("Tu numero es menor, busca uno mayor");
+                }
+                if (miNumero > aleatorio)
+                {
+                    Console.WriteLine("Tu numero es mayor, busca uno menor");
                 }
 
-            } while (opcion != 0);
-
+            }
+            Console.WriteLine($"Felicidades el numero era {aleatorio}, El numero de intentos fueron {intentos}");
             
             
         }
