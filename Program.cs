@@ -10,26 +10,29 @@ namespace MetodosParametrosOpcionales
         {
             Random numero = new Random();
             int aleatorio = numero.Next(1, 100);
-            int miNumero = 101;
-            int intentos = 0;
+            int contador = 0;
+            int miNumero = 0;
 
-            Console.WriteLine("Introduce un numero entre 0 y 100");
 
-            while (aleatorio != miNumero)
+            do
             {
-                intentos++;
+                contador++;
+
+                Console.WriteLine("Ingresa un numero del 1 al 100");
                 miNumero = int.Parse(Console.ReadLine());
                 if (miNumero < aleatorio)
                 {
-                    Console.WriteLine("Tu numero es menor, busca uno mayor");
-                }
-                if (miNumero > aleatorio)
+                    Console.WriteLine("El numero es menor, aumenta su valor");
+                } else if (miNumero > aleatorio)
                 {
-                    Console.WriteLine("Tu numero es mayor, busca uno menor");
+                    Console.WriteLine("El numero es mayor, disminuye su valor");
                 }
 
-            }
-            Console.WriteLine($"Felicidades el numero era {aleatorio}, El numero de intentos fueron {intentos}");
+
+            } while (aleatorio != miNumero);
+
+            Console.WriteLine($"Correcto! El numero era {aleatorio}, tu numeros de intentos es de: {contador}");
+
             
             
         }
