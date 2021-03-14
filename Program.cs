@@ -17,9 +17,14 @@ namespace MetodosParametrosOpcionales
             do
             {
                 contador++;
-
-                Console.WriteLine("Ingresa un numero del 1 al 100");
-                miNumero = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.WriteLine("Ingresa un numero del 1 al 100");
+                    miNumero = int.Parse(Console.ReadLine());
+                }catch(FormatException ex)
+                {
+                    Console.WriteLine("No haz introducido un valor valido. Se toma como numero inicial el 0 debido a que no introdujo un valor valido");
+                }
                 if (miNumero < aleatorio)
                 {
                     Console.WriteLine("El numero es menor, aumenta su valor");
