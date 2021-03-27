@@ -8,35 +8,43 @@ namespace MetodosParametrosOpcionales
     {
         static void Main(string[] args)
         {
-            Random numero = new Random();
-            int aleatorio = numero.Next(1, 100);
+            int numero = 0;
             int contador = 0;
-            int miNumero = 0;
 
-
-            do
+            Console.WriteLine("Bienvenido al programa de numeros primos");
+            try
             {
-                contador++;
-                try
+                Console.WriteLine("Ingrese un numero entero");
+                numero = int.Parse(Console.ReadLine());
+
+            }
+            catch (Exception ex){
+                Console.WriteLine("Error ingreso un valor incorrecto, Se asignara el valor de 2");
+                numero = 2;
+
+            }
+
+            if (numero > 1)
+            {
+                for (int i = 1; i<=numero; i++)
                 {
-                    Console.WriteLine("Ingresa un numero del 1 al 100");
-                    miNumero = int.Parse(Console.ReadLine());
-                }catch(FormatException ex)
-                {
-                    Console.WriteLine("No haz introducido un valor valido. Se toma como numero inicial el 0 debido a que no introdujo un valor valido");
+                    if (numero % i == 0)
+                    {
+                        contador++;
+                    }
                 }
-                if (miNumero < aleatorio)
-                {
-                    Console.WriteLine("El numero es menor, aumenta su valor");
-                } else if (miNumero > aleatorio)
-                {
-                    Console.WriteLine("El numero es mayor, disminuye su valor");
-                }
+            }
 
-
-            } while (aleatorio != miNumero);
-
-            Console.WriteLine($"Correcto! El numero era {aleatorio}, tu numeros de intentos es de: {contador}");
+            if(contador == 2)
+            {
+                Console.WriteLine("Su numero es primo.");
+            }
+            else
+            {
+                Console.WriteLine("Su numero es compuesto");
+            }
+        
+          
 
             
             
