@@ -8,42 +8,39 @@ namespace MetodosParametrosOpcionales
     {
         static void Main(string[] args)
         {
-            int numero = 0;
-            int contador = 0;
+            System.IO.StreamReader archivo = null;
 
-            Console.WriteLine("Bienvenido al programa de numeros primos");
             try
             {
-                Console.WriteLine("Ingrese un numero entero");
-                numero = int.Parse(Console.ReadLine());
+                string linea;
 
-            }
-            catch (Exception ex){
-                Console.WriteLine("Error ingreso un valor incorrecto, Se asignara el valor de 2");
-                numero = 2;
+                int contadorLinea = 0;
 
-            }
+                string ruta = @"C:\Users\Games\Desktop\tirar.txt";
 
-            if (numero > 1)
-            {
-                for (int i = 1; i<=numero; i++)
+                archivo = new System.IO.StreamReader(ruta);
+
+                while((linea = archivo.ReadLine()) != null)
                 {
-                    if (numero % i == 0)
-                    {
-                        contador++;
-                    }
+                    Console.WriteLine(linea);
+                    contadorLinea++;
                 }
-            }
 
-            if(contador == 2)
-            {
-                Console.WriteLine("Su numero es primo.");
+
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Su numero es compuesto");
+                Console.WriteLine("Error con la lectura del archivo");
             }
-        
+            //Para cerrar el streamReader para que no consuma tantos recursos, se recomienda siempre usarlo cuando son archivos o base de datos
+            finally
+            {
+                if (archivo != null)
+                {
+                    archivo.Close();
+                }
+                Console.WriteLine("El archivo se cerro con exito.");
+            }
           
 
             
